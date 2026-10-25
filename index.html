@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>Ton Nom — Architecte d’illusions</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌀%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;800&family=Sora:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css"></head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="goo"><feGaussianBlur in="SourceGraphic" stdDeviation="7"/><feColorMatrix values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 30 -13"/></filter></svg>
+<div id="boot"><pre id="bt"></pre></div><canvas id="mx" aria-hidden="true"></canvas><div id="tst" role="status"></div>
+<nav><b>TN</b><div><a href="#z">Zoom</a><a href="#projets">Projets</a><a href="#hy">Illusions</a><a href="#jeu">Jeu</a><a href="#contact">Contact</a><button id="calm" aria-pressed="false">Calmer les effets</button></div></nav>
+<main>
+<header class="hero" data-a="0" data-b="0"><h1 id="nm" data-t="TON NOM">TON NOM</h1><p>Développeur. J’invente des interfaces qui trompent les yeux et servent les gens.</p><small>psst : essaie de taper « sudo »</small></header>
+<section id="z" class="tall" data-a="0" data-b="1"><div class="zst"><div id="zw"></div><div class="cap" id="zc"></div></div></section>
+<section id="projets" data-a="1" data-b="2"><h2 class="fx">Projets</h2><p class="lead fx">Incline les cartes avec ton curseur ou ton doigt. Derrière, deux séries d’anneaux se croisent : le motif qui glisse n’existe nulle part, c’est du moiré.</p>
+<div class="chips fx"><code>React</code><code>Three.js</code><code>GSAP</code><code>Node</code><code>Python</code><code>Postgres</code><code>Unity</code><code>Docker</code><code>Git</code></div><div class="grid" id="gr"></div></section>
+<section id="hy" class="tall" data-a="2" data-b="3"><div class="zst"><div id="ht">effets hypnotiques : bouton « Calmer les effets » en haut à droite</div><div class="cap" id="hc"></div></div></section>
+<section id="jeu" data-a="3" data-b="4"><h2 class="fx">Garde la balle en l’air</h2><p class="lead fx">Ton curseur repousse la balle comme un courant d’air. Clique pour la frapper. Les orbes font monter le combo. Compte les rebonds, ou ne les compte pas.</p>
+<div class="gw fx"><canvas id="gm" width="960" height="540" aria-label="Jeu de balle : garde la balle en l’air et attrape les orbes"></canvas><div class="gb"><span id="gi">Clique dans l’arène pour jouer.</span><button class="btn" id="sn">Son : off</button></div></div></section>
+<section id="contact" data-a="4" data-b="5"><canvas id="sy"></canvas><canvas id="sg"></canvas><div id="ct"><h2>Approche-toi.</h2><p class="lead" style="margin:0 auto">Il t’a déjà repéré.</p></div>
+<div id="rv"><h2>Curseur absorbé.</h2><p id="rs">Il fait maintenant partie de moi.</p><a href="mailto:ton@email.com">Écris-moi</a><button id="rl">Récupérer mon curseur</button></div></section>
+</main>
+<script src="js/main.js"></script></body></html>
