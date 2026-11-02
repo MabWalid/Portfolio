@@ -12,7 +12,6 @@ document.querySelectorAll(".card").forEach(c=>{
   c.style.setProperty("--gx",x*100);c.style.setProperty("--gy",y*100)});
  c.addEventListener("pointerleave",()=>{c.style.transform="";c.style.setProperty("--gx",50);c.style.setProperty("--gy",50)})});
 const FX=[...document.querySelectorAll(".fx")];
-const tst=m=>{const t=$("tst");t.textContent=m;t.classList.add("on");setTimeout(()=>t.classList.remove("on"),2800)};
 // ====== Fond WebGL : 6 illusions qui se fondent au scroll ======
 const VS="attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}";
 const FS=`#ifdef GL_FRAGMENT_PRECISION_HIGH
@@ -78,8 +77,13 @@ function loop(t){const T=t/1000,dt=Math.min(.05,T-lt);lt=T;
 // ====== Intro ======
 function decode(){const h=$("nm"),tg=h.dataset.t,s=performance.now();(function f(){const p=(performance.now()-s)/1500;
  h.textContent=RM?tg:[...tg].map((c,i)=>c==" "?" ":(p>i/tg.length*.8+.2?c:"▓▒░#/<>"[Math.random()*7|0])).join("");if(p<1.2&&!RM)requestAnimationFrame(f);else h.textContent=tg})()}
-(()=>{const full=["walid@lille:~$ ./enter","stack     java · react · node","world     online","_"].join("\n"),bt=$("bt");let n=0;
- const iv=setInterval(()=>{bt.textContent=full.slice(0,++n)+"▌";if(n>=full.length){clearInterval(iv);setTimeout(()=>{$("boot").classList.add("out");setTimeout(decode,300);setTimeout(()=>$("boot").remove(),850)},350)}},RM?1:24)})();
+(()=>{const full=["> initializing...","> mounting living world","walid@lille:~$ ./enter","stack     java · react · node","world     online","_"].join("\n"),bt=$("bt"),bootMs=2000;
+ const finish=()=>{$("boot").classList.add("out");dispatchEvent(new Event("world-ready"));setTimeout(decode,300);setTimeout(()=>$("boot").remove(),850)};
+ if(RM){bt.textContent=full;finish();return}
+ const start=performance.now();let n=-1;
+ (function tick(now){const elapsed=now-start,target=Math.min(full.length,(elapsed/14)|0);
+  if(target!==n){n=target;bt.textContent=full.slice(0,n)+(n<full.length?"▌":"")}
+  if(elapsed<bootMs)requestAnimationFrame(tick);else{bt.textContent=full;finish()}})(start)})();
 // ====== Contact : le symbiote ======
 const sy=$("sy"),z=sy.getContext("2d"),sg=$("sg"),zg=sg.getContext("2d"),cs=$("contact");
 let SW=0,SH=0,pin=false,pxx=0,pyy=0,st=0,gr=0,gst=1,lock=0,cx0=0,cy0=0,R0=60;
@@ -110,16 +114,10 @@ function sym(T,dt){if(!SW)return;
   zg.strokeStyle="rgba(41,240,255,.8)";zg.lineWidth=2;const q=16+6*Math.sin(T*10);zg.beginPath();zg.arc(pxx,pyy,q,0,7);zg.stroke();
   for(let a=0;a<4;a++){const c=Math.cos(a*1.5708),s=Math.sin(a*1.5708);zg.beginPath();zg.moveTo(pxx+c*(q+3),pyy+s*(q+3));zg.lineTo(pxx+c*(q+11),pyy+s*(q+11));zg.stroke()}
   const lt=TN[lock].tip;if(Math.hypot(lt.x-pxx,lt.y-pyy)<20){st=1;gst=Math.hypot(lt.x-cx0,lt.y-cy0)||1}}
- if(st==1){const lt=TN[lock].tip,d=Math.hypot(lt.x-cx0,lt.y-cy0),sc=Math.max(.12,Math.min(1,(d-R0*.5)/(gst-R0*.5)));
+ if(st==1){const lt=TN[lock].tip,d=Math.hypot(lt.x-cx0,lt.y-cy0),span=Math.max(gst-R0*.5,1),sc=Math.max(.12,Math.min(1,(d-R0*.5)/span));
   zg.save();zg.translate(lt.x,lt.y);zg.scale(sc*1.1,sc*1.1);zg.fillStyle="#fff";zg.strokeStyle="#000";zg.lineWidth=1.5;zg.beginPath();[[0,0],[0,18],[5,14],[9,22],[12,20],[8,13],[14,13]].forEach(p=>zg.lineTo(p[0],p[1]));zg.closePath();zg.fill();zg.stroke();zg.restore();
   if(d<R0*1){st=2;gr=0;$("rs").textContent="Session ouverte. Le curseur est dans le système."}}
  if(st==2){gr+=dt*(500+gr*2.4);const big=R0+gr>Math.hypot(SW,SH)*.5;$("rv").classList.toggle("on",big);$("ct").style.opacity=0}}
-$("rl").onclick=()=>{st=0;gr=0;pin=false;$("rv").classList.remove("on");$("ct").style.opacity=1};
-// ====== Surprises ======
-let kb="";addEventListener("keydown",e=>{kb=(kb+e.key).slice(-4);if(kb=="sudo")root()});
-function root(){const m=$("mx"),c=m.getContext("2d");m.width=innerWidth;m.height=innerHeight;m.style.opacity=1;const cols=Array(Math.ceil(innerWidth/16)).fill(0);let n=0;
- const iv=setInterval(()=>{c.fillStyle="rgba(5,6,13,.15)";c.fillRect(0,0,m.width,m.height);c.fillStyle="#29f0ff";c.font="16px monospace";
-  cols.forEach((v,i)=>{c.fillText(String.fromCharCode(0x30a0+Math.random()*96),i*16,v*16);cols[i]=v*16>m.height&&Math.random()>.97?0:v+1});
-  if(++n>120){clearInterval(iv);m.style.opacity=0}},33);tst("sudo : accès root accordé")}
+$("rl").onclick=()=>{st=0;gr=0;pin=false;$("rv").classList.remove("on");$("ct").style.opacity=1;$("rs").textContent="Il fait maintenant partie de moi.";sr()};
 document.addEventListener("visibilitychange",()=>{document.title=document.hidden?"Reviens, j’ai pas fini 👀":"Walid Mabrouk — Architecte d’illusions"});
 requestAnimationFrame(loop);

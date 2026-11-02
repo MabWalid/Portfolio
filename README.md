@@ -7,7 +7,7 @@ Portfolio de développeur, sans framework ni dépendance : HTML, CSS et JavaScri
 - Entrée dans le monde : zoom arrière piloté par le scroll.
 - Cartes projets 3D qui suivent le curseur : FitAI, Passerelle, stage Conserval.
 - Contact « symbiote » : tentacules qui poursuivent le curseur et l’absorbent.
-- Easter eggs : taper `sudo`, titre d’onglet qui change quand tu pars.
+- Le titre de l’onglet change quand tu quittes la page.
 - Accessibilité : bouton « Calmer les effets » et respect de `prefers-reduced-motion`.
 
 ## Lancer en local
