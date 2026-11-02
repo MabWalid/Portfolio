@@ -3,10 +3,9 @@
 Portfolio de développeur, sans framework ni dépendance : HTML, CSS et JavaScript purs.
 
 ## Ce que contient le site
-- Fond WebGL (shader GLSL) qui se transforme en continu au scroll : tunnel, moiré, damier qui respire, spirale, lave.
-- Entrée dans le monde : zoom arrière piloté par le scroll.
+- Fond vivant : pluie de code, terminaux, réseau, yeux, éclairs et glitch, qui s’éteint en arrivant au contact.
 - Cartes projets 3D qui suivent le curseur : FitAI, Passerelle, stage Conserval.
-- Contact « symbiote » : tentacules qui poursuivent le curseur et l’absorbent.
+- Contact calme : un œil, un formulaire en ligne de commande, liens email et GitHub.
 - Le titre de l’onglet change quand tu quittes la page.
 - Accessibilité : bouton « Calmer les effets » et respect de `prefers-reduced-motion`.
 

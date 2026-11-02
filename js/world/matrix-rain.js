@@ -3,7 +3,6 @@
 
 const GLYPHS = "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン01";
 const WORDS = ["const", "root", "SELECT *", "ssh", "404", "void", "whoami", "illusion", "layer"];
-const GHOSTS = ["DÉVELOPPEUR", "DESIGN", "CODE"];
 
 const INK = {
   green: [0, 255, 156],
@@ -22,7 +21,6 @@ function rgba(rgb, a) {
 export function createMatrixRain(canvas, cfg) {
   const ctx = canvas.getContext("2d", { alpha: true });
   let cols = [];
-  let ghosts = [];
   let width = 0;
   let height = 0;
   let fontPx = cfg.fontSize;
@@ -66,12 +64,6 @@ export function createMatrixRain(canvas, cfg) {
     margin = width * (mobile ? cfg.mobileMargin : cfg.margin);
     const count = mobile ? cfg.mobileColumns : cfg.columns;
     cols = Array.from({ length: count }, () => spawn(true));
-    ghosts = GHOSTS.map((text, i) => ({
-      text,
-      side: i % 2 === 0 ? 1 : -1,
-      y: height * (0.2 + i * 0.28),
-      speed: 8 + i * 3,
-    }));
   }
 
   function draw(dt, state) {
@@ -85,22 +77,6 @@ export function createMatrixRain(canvas, cfg) {
     const py = state.pointer?.y ?? height / 2;
     const time = state.time || 0;
     ctx.textBaseline = "top";
-
-    if (!calm) {
-      ctx.font = `600 ${Math.max(22, fontPx * 2.1)}px "JetBrains Mono", ui-monospace, monospace`;
-      ctx.fillStyle = "rgba(0,229,255,0.07)";
-      ctx.textAlign = "center";
-      for (const ghost of ghosts) {
-        ghost.y += ghost.speed * dt * speedScale;
-        if (ghost.y > height + 120) ghost.y = -120;
-        ctx.save();
-        ctx.translate(ghost.side < 0 ? 22 : width - 22, ghost.y);
-        ctx.rotate(ghost.side < 0 ? -Math.PI / 2 : Math.PI / 2);
-        ctx.fillText(ghost.text, 0, 0);
-        ctx.restore();
-      }
-      ctx.textAlign = "left";
-    }
 
     for (const col of cols) {
       const size = fontPx * col.scale;

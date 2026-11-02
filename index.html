@@ -10,16 +10,25 @@
 <body>
 <canvas id="bg" aria-hidden="true"></canvas>
 <div id="world" aria-hidden="true"></div>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="goo"><feGaussianBlur in="SourceGraphic" stdDeviation="7"/><feColorMatrix values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 30 -13"/></filter></svg>
 <div id="boot"><pre id="bt"></pre></div>
-<nav><b>WM</b><div><a href="#z">Monde</a><a href="#projets">Projets</a><a href="#contact">Contact</a><button id="calm" aria-pressed="false">Calmer les effets</button></div></nav>
+<nav><b>WM</b><div><a href="#projets">Projets</a><a href="#contact">Contact</a><button id="calm" aria-pressed="false">Calmer les effets</button></div></nav>
 <main>
-<header class="hero" data-a="0" data-b="0"><p class="prompt"><span>walid@lille</span>:<b>~</b>$ whoami</p><h1 id="nm" data-t="WALID MABROUK">WALID MABROUK</h1><p>Développeur full stack. Licence 3 informatique à l’Université de Lille. J’invente des interfaces qui trompent les yeux et servent les gens. <a href="mailto:mabroukwalid0@gmail.com">mabroukwalid0@gmail.com</a></p></header>
-<section id="z" class="tall" data-a="0" data-b="1"><div class="zst"><div id="zw"></div><div class="cap" id="zc"></div></div></section>
+<header class="hero" data-a="0" data-b="1"><p class="prompt"><span>walid@lille</span>:<b>~</b>$ whoami</p><h1 id="nm" data-t="WALID MABROUK">WALID MABROUK</h1><p>Développeur full stack. Licence 3 informatique à l’Université de Lille. J’invente des interfaces qui trompent les yeux et servent les gens. <a href="mailto:mabroukwalid0@gmail.com">mabroukwalid0@gmail.com</a></p></header>
 <section id="projets" data-a="1" data-b="2"><p class="prompt fx">~/projets</p><h2 class="fx">Systèmes</h2><p class="lead fx">Trois couches. Les cartes suivent le curseur, le fond change de profondeur.</p>
 <div class="chips fx"><code>Java</code><code>Spring Boot</code><code>React</code><code>TypeScript</code><code>Node</code><code>PostgreSQL</code><code>Angular</code><code>Docker</code></div><div class="grid" id="gr"></div></section>
-<section id="contact" data-a="2" data-b="3"><canvas id="sy"></canvas><canvas id="sg"></canvas><div id="ct"><h2>Entre.</h2><p class="lead" style="margin:0 auto">Le curseur ouvre la session.</p></div>
-<div id="rv"><h2>Session liée.</h2><p id="rs">Il fait maintenant partie de moi.</p><a href="mailto:mabroukwalid0@gmail.com">Écris-moi</a><a href="https://github.com/MabWalid">GitHub</a><button id="rl">Récupérer mon curseur</button></div></section>
+<section id="contact" data-a="2" data-b="3">
+<div class="halo" aria-hidden="true"></div>
+<div class="watch" aria-hidden="true"><svg viewBox="0 0 240 100"><ellipse cx="120" cy="50" rx="96" ry="38" fill="none" stroke="#00e5ff" stroke-width="1.4"/><ellipse cx="120" cy="50" rx="74" ry="26" fill="#07110f"/><circle id="pupil" cx="120" cy="50" r="9" fill="#00ff9c"/><circle cx="116" cy="46" r="2.4" fill="#f4fff9"/></svg></div>
+<h2 id="hello" data-t="Tu m'as trouvé.">Tu m'as trouvé.</h2>
+<form id="mail" action="mailto:mabroukwalid0@gmail.com" method="post" enctype="text/plain">
+<label class="line"><span>> nom_</span><input name="nom" autocomplete="name" required></label>
+<label class="line"><span>> email_</span><input type="email" name="email" autocomplete="email" required></label>
+<label class="line"><span>> message_</span><textarea name="message" rows="3" required></textarea></label>
+<button type="submit">ENVOYER ↵</button>
+</form>
+<p id="sent" role="status" hidden>message transmis. je te réponds vite.</p>
+<div class="soc"><a class="mag" href="mailto:mabroukwalid0@gmail.com">email</a><a class="mag" href="https://github.com/MabWalid">GitHub</a></div>
+</section>
 </main>
 <script type="module" src="js/world/living-world.js"></script>
 <script src="js/main.js"></script></body></html>

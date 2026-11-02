@@ -1,25 +1,55 @@
-/* Réglages du monde vivant. matrix = pluie dans les marges, le centre reste lisible. */
+/* Tous les réglages du monde. Baisse un chiffre pour calmer l'effet. */
 
 export const WORLD = {
   bootMs: 2000,
+  /* Temps pour éteindre le chaos quand Contact arrive, en secondes. */
+  fade: 1.5,
 
   matrix: {
     fontSize: 15,
-    columns: 34,
-    mobileColumns: 14,
-    /* Largeur des deux marges, en part de l'écran. Le milieu reste vide. */
-    margin: 0.26,
-    mobileMargin: 0.18,
+    columns: 32,
+    mobileColumns: 12,
+    margin: 0.24,
+    mobileMargin: 0.16,
     tailMin: 7,
-    tailMax: 16,
+    tailMax: 15,
     speedMin: 0.35,
-    speedMax: 1.15,
-    opacity: 0.8,
-    /* Courbure des colonnes vers le curseur, en pixels. */
-    shear: 42,
+    speedMax: 1.1,
+    opacity: 0.78,
+    shear: 36,
     glitchChance: 0.01,
     freezeChance: 0.004,
-    /* Part des colonnes rouges. */
-    alertRate: 0.06,
+    alertRate: 0.07,
+  },
+
+  network: {
+    nodes: 42,
+    mobileNodes: 16,
+    link: 150,
+    speed: 18,
+    packetCount: 14,
+  },
+
+  eyes: {
+    count: 8,
+    mobileCount: 4,
+    blinkMin: 2.2,
+    blinkMax: 6,
+  },
+
+  lightning: {
+    minGap: 4,
+    maxGap: 10,
+    depth: 5,
+  },
+
+  glitch: {
+    everyMin: 5.5,
+    everyMax: 9,
+  },
+
+  terminals: {
+    count: 2,
+    mobileCount: 1,
   },
 };
